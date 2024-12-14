@@ -3,6 +3,7 @@ def checkAB(str):
     if len(str)==0:
         return "true"
 
+    #basically task of recursion to break the string and check for the rules specified
     if (len(str)>=3) and ((str[0]=="a") and (str[1]=="b") and (str[2]=="b")):
         print(str)
         print("Entering first condition")
