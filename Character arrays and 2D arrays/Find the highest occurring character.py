@@ -1,9 +1,10 @@
 from sys import stdin
 import numpy as np
 
-def highestOccuringChar(string) :
+def highestOccuringChar_1(string) :
 	#Your code goes here
 	freq = {}
+	max  =0
 	for char in string:
 		if char in freq.keys():
 			freq[char] = freq[char] + 1
@@ -18,9 +19,10 @@ def highestOccuringChar(string) :
 			break
 	
 	return max_char
-		
+	
+			
 #main
 string = stdin.readline().strip();
-ans = highestOccuringChar(string)
+ans = highestOccuringChar_1(string)
 
 print(ans)
