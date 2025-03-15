@@ -27,11 +27,12 @@ def rotate_2(arr, n, d):
 """Method 3"""
 def rotate_3(arr,n,d):
     #Shift element at i+1 pos to ipos 
+    shift_ele = len(arr) -1
     while d>0:
         temp=arr[0]
-        for i in range(len(arr)-d):
+        for i in range(shift_ele):
             arr[i]=arr[i+1]
-        arr[i]=temp
+        arr[i+1]=temp
         d-=1
 
 """Method 4"""
@@ -70,7 +71,7 @@ t = int(stdin.readline().rstrip())
 while t > 0 :
     arr, n = takeInput()
     d = int(stdin.readline().rstrip())
-    rotate_4(arr, n, d)
+    rotate_3(arr, n, d)
     printList(arr, n)
     
     t -= 1
