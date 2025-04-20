@@ -1,7 +1,7 @@
 
 from sys import stdin
 
-
+#using split and join
 def reverseEachWord_1(string) :
 	# Your code goes here
 
@@ -18,30 +18,39 @@ def reverseEachWord_1(string) :
     return string
 
 def reverseEachWord_2(string) :
+    s = list(string)
+    print(s)
     ptrA = 0
     ptrB = 0
     i=0
 
-    while True:
-        if string[i] == ' ' or string[i] =='\0':
-            ptrB = i-1
+    def swap(s, ptrA, ptrB):
+        while ptrA < ptrB:
+            s[ptrA], s[ptrB] = s[ptrB], s[ptrA]
+            ptrA = ptrA+1
+            ptrB = ptrB-1
+        return s
 
-            while ptrA < ptrB:
-                string[ptrA], string[ptrB] = string[ptrB], string[ptrA]
-                
+    while i<len(s):
+        if s[i] == ' ':
+            ptrB = i-1
+            s = swap(s, ptrA, ptrB)
             ptrA = i+1
             ptrB = ptrA
-            
-            if string[i] == '\0':
-                break
+
+        elif i==len(s)-1:
+            ptrB = i
+            s = swap(s, ptrA, ptrB)
+            ptrA = i+1
+            ptrB = ptrA
 
         i = i+1
-    return string
-
+    return "".join(s)
 
 #main
 string = stdin.readline().strip()
 
 ans = reverseEachWord_2(string)
+
 
 print(ans)
